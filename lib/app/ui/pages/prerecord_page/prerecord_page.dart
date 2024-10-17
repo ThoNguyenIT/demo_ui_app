@@ -11,32 +11,21 @@ class PrerecordPage extends GetView<PrerecordController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-          onPressed: () {
-            Get.offAllNamed(AppRoutes.home);
-          },
-        ),
-      ),
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+              onPressed: () => Get.offAllNamed(AppRoutes.home)),
+          elevation: 0,
+          backgroundColor: Colors.transparent),
       body: Column(
         children: [
           Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.brown,
-              child: Center(
-                child: Text(
-                  'Your Video is here',
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
+              flex: 2,
+              child: Container(
+                  color: Colors.brown,
+                  child: Center(
+                      child: Text('Your Prerecord is here',
+                          style: TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.bold))))),
           Expanded(
             flex: 2,
             child: Scrollbar(
@@ -47,71 +36,18 @@ class PrerecordPage extends GetView<PrerecordController> {
                 shrinkWrap: true,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        width: 3,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "2023.08.07",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_right_sharp,
-                              size: 30,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        width: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "2023.08.06",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_right_sharp,
-                              size: 30,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(width: 3, color: Colors.blue)),
+                      child: GestureDetector(
+                          onTap: () => print('2024.10.10 prerecord'),
+                          child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Text("2024.10.10",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold))))),
                 ],
               ),
             ),

@@ -30,8 +30,7 @@ class SparkData {
     final status = json['status'] == 1;
 
     return SparkData(
-      time: DateTime(date.year, date.month, date.day, hour, minute, second),
-      on: status,
-    );
+        on: status,
+        time: DateTime(date.year, date.month, date.day, hour, minute, second));
   }
 }

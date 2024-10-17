@@ -12,35 +12,28 @@ class DegreePage extends GetView<DegreeController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Get.offAllNamed(AppRoutes.home);
-          },
-        ),
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () => Get.offAllNamed(AppRoutes.home)),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
         child: Column(
           children: [
             SfCartesianChart(
-              primaryXAxis: CategoryAxis(
-                isVisible: false,
-              ),
+              primaryXAxis: CategoryAxis(isVisible: false),
               trackballBehavior: TrackballBehavior(
-                enable: true,
-                activationMode: ActivationMode.singleTap,
-                lineWidth: 3,
-                /* lineColor: Colors.amber, */
-                tooltipDisplayMode: TrackballDisplayMode.groupAllPoints,
-                tooltipSettings: InteractiveTooltip(
                   enable: true,
-                  format: 'Status: point.y%',
-                  borderColor: Colors.amber,
-                  borderWidth: 3,
-                ),
-              ),
+                  activationMode: ActivationMode.singleTap,
+                  lineWidth: 3,
+                  /* lineColor: Colors.amber, */
+                  tooltipDisplayMode: TrackballDisplayMode.groupAllPoints,
+                  tooltipSettings: InteractiveTooltip(
+                      enable: true,
+                      format: 'Status: point.y%',
+                      borderColor: Colors.amber,
+                      borderWidth: 3)),
               series: <LineSeries<Data, String>>[
                 LineSeries<Data, String>(
                   dataSource: <Data>[
@@ -103,54 +96,19 @@ class DegreePage extends GetView<DegreeController> {
                 child: ListView(
                   children: [
                     Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          width: 3,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              "2023.08.07",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    for (var i = 0; i < 100; i++)
-                      Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                "2023.08.06",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                            color: Colors.white,
+                            border: Border.all(width: 3, color: Colors.blue)),
+                        child: GestureDetector(
+                            onTap: () => print('degree data'),
+                            child: Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Text("2023.08.07",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold))))),
                   ],
                 ),
               ),

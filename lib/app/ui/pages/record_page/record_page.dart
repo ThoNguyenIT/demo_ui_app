@@ -11,114 +11,149 @@ class RecordPage extends GetView<RecordController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-          onPressed: () {
-            Get.offAllNamed(AppRoutes.home);
-          },
-        ),
-      ),
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
+              onPressed: () => Get.offAllNamed(AppRoutes.home)),
+          elevation: 0,
+          backgroundColor: Colors.transparent),
       body: Column(
         children: [
           Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.brown,
-              child: Center(
-                child: Text(
-                  'Your Video is here',
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
+              child: Container(
+                  color: Colors.brown,
+                  child: Center(
+                      child: Text('Your record is here',
+                          style: TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.bold))))),
           Expanded(
-            flex: 2,
-            child: Scrollbar(
-              interactive: false,
-              radius: Radius.circular(90),
-              child: ListView(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        width: 3,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "감지/영상 보기",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_right_sharp,
-                              size: 30,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              Get.toNamed(AppRoutes.prerecord);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  //for (var i = 0; i < 6; i++)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        width: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "타임랩스 영상 보기",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_right_sharp,
-                              size: 30,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+              child: Scrollbar(
+                  interactive: false,
+                  radius: Radius.circular(90),
+                  child: ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () => Get.toNamed(AppRoutes.prerecord),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("감지/영상 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () {},
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("타임랩스 영상 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () => Get.toNamed(AppRoutes.camera),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("열화상 영상 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () => Get.toNamed(AppRoutes.degree),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("온도 그래프 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () => Get.toNamed(AppRoutes.spark),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("불꽃 감지 센서 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(width: 0)),
+                            child: GestureDetector(
+                                onTap: () => Get.toNamed(AppRoutes.smoke),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(children: [
+                                      Expanded(
+                                          child: Text("연기 감지 센서 보기",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                  fontWeight:
+                                                      FontWeight.bold))),
+                                      Icon(Icons.arrow_forward_ios_rounded,
+                                          size: 25, color: Colors.black)
+                                    ])))),
+                      ])))
         ],
       ),
     );

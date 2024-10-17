@@ -34,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.optionmenu,
-      page: () =>  OptionmenuPage(),
+      page: () => OptionmenuPage(),
       binding: OptionmenuBinding(),
     ),
     GetPage(
@@ -44,32 +44,32 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.camera,
-      page: () =>  CameraPage(),
+      page: () => CameraPage(),
       binding: CameraBinding(),
     ),
     GetPage(
       name: AppRoutes.record,
-      page: () =>  RecordPage(),
+      page: () => RecordPage(),
       binding: PrerecordBinding(),
     ),
     GetPage(
       name: AppRoutes.prerecord,
-      page: () =>  PrerecordPage(),
+      page: () => PrerecordPage(),
       binding: PrerecordBinding(),
     ),
     GetPage(
       name: AppRoutes.spark,
-      page: () =>  SparkPage(),
+      page: () => SparkPage(),
       binding: SparkBinding(),
     ),
     GetPage(
       name: AppRoutes.smoke,
-      page: () =>  SmokePage(),
+      page: () => SmokePage(),
       binding: SmokeBinding(),
     ),
     GetPage(
       name: AppRoutes.degree,
-      page: () =>  DegreePage(),
+      page: () => DegreePage(),
       binding: DegreeBinding(),
     ),
   ];

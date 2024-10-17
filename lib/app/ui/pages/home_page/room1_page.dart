@@ -1,11 +1,6 @@
 import 'package:demo_92024/app/controllers/home_controller.dart';
+import 'package:demo_92024/app/routes/app_routes.dart';
 import 'package:demo_92024/app/ui/global_widgets/global_badge.dart';
-import 'package:demo_92024/app/ui/pages/camera_page/camera_page.dart';
-import 'package:demo_92024/app/ui/pages/degree_page/degree_page.dart';
-import 'package:demo_92024/app/ui/pages/dialogsns_page/dialogsns_page.dart';
-import 'package:demo_92024/app/ui/pages/record_page/record_page.dart';
-import 'package:demo_92024/app/ui/pages/smokeview_page/smoke_page.dart';
-import 'package:demo_92024/app/ui/pages/spark_page/spark_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,131 +27,84 @@ class _Room1PageState extends State<Room1Page> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Obx(
-                        () => Switch(
+                  Row(children: [
+                    Obx(
+                      () => Switch(
                           value: controller.isAutoMode.value,
                           onChanged: (bool newValue) {
                             controller.toogleSwitch(newValue);
                           },
                           activeColor: Colors.blue,
                           inactiveThumbColor: Colors.grey,
-                          inactiveTrackColor: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        '수동 모드',
+                          inactiveTrackColor: Colors.white),
+                    ),
+                    Text('수동 모드',
                         style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold))
+                  ]),
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            child: Image.asset(
-                              'assets/images/room1.png',
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            'Room 1',
+                      Row(children: [
+                        SizedBox(child: Image.asset('assets/images/room1.png')),
+                        SizedBox(width: 10),
+                        Text('Room 1',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            child: Image.asset(
-                              'assets/images/room2.png',
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            'Room 2',
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))
+                      ]),
+                      Row(children: [
+                        SizedBox(
+                          child: Image.asset('assets/images/room2.png'),
+                        ),
+                        SizedBox(width: 10),
+                        Text('Room 2',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            child: Image.asset(
-                              'assets/images/room3.png',
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            'Room 3',
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))
+                      ]),
+                      Row(children: [
+                        SizedBox(child: Image.asset('assets/images/room3.png')),
+                        SizedBox(width: 10),
+                        Text('Room 3',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))
+                      ])
                     ],
                   ),
                 ],
               ),
             ),
             Center(
-              child: InkWell(
-                onTap: () {
-                  controller.toggleActive();
-                },
-                child: Obx(
-                  () => Image.asset(
-                    controller.currentData.value.imagePath,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ),
+                child: InkWell(
+                    onTap: () => controller.toggleActive(),
+                    child: Obx(() => Image.asset(
+                        controller.currentData.value.imagePath,
+                        fit: BoxFit.contain)))),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(children: [
                   Switch(
-                    value: isExpanded,
-                    onChanged: (bool expanded) {
-                      setState(
-                        () {
+                      value: isExpanded,
+                      activeColor: Colors.blue,
+                      inactiveThumbColor: Colors.grey,
+                      inactiveTrackColor: Colors.white,
+                      onChanged: (bool expanded) {
+                        setState(() {
                           isExpanded = expanded;
-                        },
-                      );
-                    },
-                    activeColor: Colors.blue,
-                    inactiveThumbColor: Colors.grey,
-                    inactiveTrackColor: Colors.white,
-                  ),
-                  Text(
-                    '센서 보기',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                        });
+                      }),
+                  Text('센서 보기',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold))
+                ])),
             AnimatedContainer(
               duration: Duration(milliseconds: 5000),
               curve: Curves.fastLinearToSlowEaseIn,
@@ -168,9 +116,8 @@ class _Room1PageState extends State<Room1Page> {
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 215, 208, 208),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                            color: Color.fromARGB(255, 215, 208, 208),
+                            borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           children: [
                             Padding(
@@ -180,39 +127,29 @@ class _Room1PageState extends State<Room1Page> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   GlobalBadge(
-                                    showBadge: true,
-                                    onTap: () {
-                                      Get.to(() => CameraPage());
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/1.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: true,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.camera),
+                                      child: Image.asset('assets/images/1.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain)),
                                   GlobalBadge(
-                                    showBadge: false,
-                                    onTap: () {},
-                                    child: Image.asset(
-                                      'assets/images/2.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: false,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.camera),
+                                      child: Image.asset('assets/images/2.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain)),
                                   GlobalBadge(
-                                    showBadge: true,
-                                    onTap: () {
-                                      Get.to(() => RecordPage());
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/3.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: true,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.record),
+                                      child: Image.asset('assets/images/3.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain)),
                                 ],
                               ),
                             ),
@@ -223,41 +160,29 @@ class _Room1PageState extends State<Room1Page> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   GlobalBadge(
-                                    showBadge: false,
-                                    onTap: () {
-                                      Get.to(() => SparkPage());
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/4.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: false,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.spark),
+                                      child: Image.asset('assets/images/4.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain)),
                                   GlobalBadge(
-                                    showBadge: true,
-                                    onTap: () {
-                                      Get.to(() => SmokePage());
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/5.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: true,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.smoke),
+                                      child: Image.asset('assets/images/5.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain)),
                                   GlobalBadge(
-                                    showBadge: true,
-                                    onTap: () {
-                                      Get.to(() => DegreePage());
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/6.png',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
+                                      showBadge: true,
+                                      yourAction: () =>
+                                          Get.toNamed(AppRoutes.degree),
+                                      child: Image.asset('assets/images/6.png',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.contain))
                                 ],
                               ),
                             ),
@@ -269,7 +194,13 @@ class _Room1PageState extends State<Room1Page> {
                 ),
               ),
             ),
-            TextButton(
+          ],
+        ),
+      ),
+    );
+  }
+}
+/*           TextButton(
               onPressed: () {
                 showDialog(
                   context: context,
@@ -297,16 +228,10 @@ class _Room1PageState extends State<Room1Page> {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            /* ...List.generate(
+            ...List.generate(
             5,
             (index) => ElevatedButton(
             onPressed: () => controller.setLevel(index + 1),
             child: Text('Set Level ${index + 1}'),
             ),
             ), */
-          ],
-        ),
-      ),
-    );
-  }
-}

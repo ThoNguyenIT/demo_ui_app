@@ -3,7 +3,6 @@ import 'package:demo_92024/app/ui/pages/home_page/room1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get/get.dart';
-import 'package:hugeicons/hugeicons.dart';
 import '../../../controllers/home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -14,22 +13,14 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Builder(
-          builder: (context) {
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Builder(builder: (context) {
             return IconButton(
-              icon: HugeIcon(
-                icon: HugeIcons.strokeRoundedMenu04,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
+              icon: Icon(Icons.menu),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             );
-          },
-        ),
-      ),
+          })),
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: ListView(
@@ -38,34 +29,21 @@ class HomePage extends GetView<HomeController> {
               padding: EdgeInsets.only(top: 10),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 227, 227, 227),
-                  border: Border(
-                    left: BorderSide(
-                      color: Colors.blue,
-                      width: 5,
-                    ),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: TextButton(
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.optionmenu);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '설정',
+                    color: Color.fromARGB(255, 227, 227, 227),
+                    border:
+                        Border(left: BorderSide(width: 5, color: Colors.blue))),
+                child: TextButton(
+                  onPressed: () => Get.toNamed(AppRoutes.optionmenu),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.settings_applications_sharp),
+                      Text('설정',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(Icons.settings_applications_sharp),
-                      ],
-                    ),
+                              fontSize: 24,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold))
+                    ],
                   ),
                 ),
               ),
@@ -110,55 +88,41 @@ class HomePage extends GetView<HomeController> {
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.white,
                     indicator: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
                     tabs: [
                       Tab(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
-                          child: MediaQuery(
-                            data: MediaQuery.of(context)
-                                .copyWith(textScaler: TextScaler.linear(0.8)),
-                            child: Text(
-                              "ROOM 1",
-                              maxLines: 1,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 25),
+                              child: MediaQuery(
+                                  data: MediaQuery.of(context).copyWith(
+                                      textScaler: TextScaler.linear(0.8)),
+                                  child: Text("ROOM 1",
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold))))),
                       Tab(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
-                          child: MediaQuery(
-                            data: MediaQuery.of(context)
-                                .copyWith(textScaler: TextScaler.linear(0.8)),
-                            child: Text(
-                              "ROOM 2",
-                              maxLines: 1,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 25),
+                              child: MediaQuery(
+                                  data: MediaQuery.of(context).copyWith(
+                                      textScaler: TextScaler.linear(0.8)),
+                                  child: Text("ROOM 2",
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold))))),
                       Tab(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
-                          child: MediaQuery(
-                            data: MediaQuery.of(context)
-                                .copyWith(textScaler: TextScaler.linear(0.8)),
-                            child: Text(
-                              "ROOM 3",
-                              maxLines: 1,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 25),
+                              child: MediaQuery(
+                                  data: MediaQuery.of(context).copyWith(
+                                      textScaler: TextScaler.linear(0.8)),
+                                  child: Text("ROOM 3",
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold))))),
                     ],
                   ),
                 ),
